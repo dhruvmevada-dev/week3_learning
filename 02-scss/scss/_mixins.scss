@@ -1,0 +1,32 @@
+@use "sass:map";
+@use "variables" as v;
+
+// Flex row that centers children both ways — reused on
+// the navbar, buttons and the badge in this demo.
+@mixin flex-center($gap: v.$space-1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+
+// Card surface: same border/radius/padding recipe used by
+// every panel on the page, defined once here.
+@mixin card($padding: v.$space-3) {
+  background: v.$color-surface;
+  border: 1px solid v.$color-line;
+  border-radius: v.$radius;
+  padding: $padding;
+}
+
+// Media query helper driven by the $breakpoints map in
+// _variables.scss, so breakpoints only live in one place.
+@mixin respond($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media (max-width: map.get(v.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}`.";
+  }
+}

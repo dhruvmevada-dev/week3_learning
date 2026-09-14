@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SCSS Practice — Sandbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- This is the COMPILED output of scss/main.scss — see that folder for the source partials -->
+<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__brand">
+      <span class="nav__mark">SB</span>
+      <span>Practice Sandbox</span>
+    </div>
+    <span class="nav__tag">SCSS demo</span>
+  </header>
+
+  <section class="section">
+    <h1>Same visual language, written with variables and mixins</h1>
+    <p>The navbar, the card grid below, and both buttons share one accent colour, one radius, and one spacing
+      scale — all pulled from <code>_variables.scss</code> instead of being retyped in each rule.</p>
+  </section>
+
+  <div class="card-grid">
+    <article class="card card--accent">
+      <h3>Variables</h3>
+      <p>Colours, fonts and spacing live in one partial and get referenced everywhere else.</p>
+    </article>
+    <article class="card">
+      <h3>Nesting</h3>
+      <p><code>.nav</code> and its <code>&amp;__brand</code>, <code>&amp;__mark</code> children are nested instead of chained with combinators.</p>
+    </article>
+    <article class="card">
+      <h3>Mixins</h3>
+      <p><code>@include card()</code> and <code>@include flex-center()</code> avoid repeating the same declarations three times.</p>
+    </article>
+  </div>
+
+  <section class="section">
+    <button class="btn">Outline button</button>
+    <button class="btn btn--solid">Solid button</button>
+  </section>
+
+</body>
+</html>

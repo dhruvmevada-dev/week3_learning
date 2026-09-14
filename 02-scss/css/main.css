@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #F3F5F1;
+  color: #20262B;
+  font-family: "Inter", sans-serif;
+  line-height: 1.55;
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+p {
+  margin: 0;
+  color: #5B6570;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  padding: 1rem 2.5rem;
+  background: #FFFFFF;
+  border-bottom: 1px solid #DBDED6;
+}
+.nav__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.nav__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 28px;
+  height: 28px;
+  background: #2F6F5E;
+  color: #FFFFFF;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+.nav__tag {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #2F6F5E;
+  border: 1px solid #2F6F5E;
+  padding: 0.2em 0.7em;
+  border-radius: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 2.5rem;
+}
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #DBDED6;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.card h3 {
+  font-size: 1.05rem;
+}
+.card--accent {
+  background: #2F6F5E;
+  border-color: #2F6F5E;
+}
+.card--accent h3, .card--accent p {
+  color: #FFFFFF;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  display: inline-flex;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  border: 1px solid #2F6F5E;
+  background: transparent;
+  color: #2F6F5E;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover {
+  background: #2F6F5E;
+  color: #FFFFFF;
+}
+.btn--solid {
+  background: #2F6F5E;
+  color: #FFFFFF;
+}
+.btn--solid:hover {
+  background: rgb(13.6718788781%, 32.2889054356%, 27.3437577563%);
+}
+
+.section {
+  padding: 0 2.5rem 2.5rem;
+  max-width: 640px;
+}
+.section p {
+  margin-top: 0.5rem;
+}

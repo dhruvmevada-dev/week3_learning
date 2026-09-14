@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flexbox &amp; Grid — Practice Sandbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__brand">
+      <span class="nav__mark">SB</span>
+      <span>Practice Sandbox</span>
+    </div>
+    <nav class="nav__links">
+      <a href="#layout">Flexbox</a>
+      <a href="#grid">Grid</a>
+      <a href="#chips">Wrapping</a>
+    </nav>
+    <span class="nav__tag">Week 3</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__text">
+        <h1>Building layouts without fighting the box model</h1>
+        <p>This page is a working record of the Flexbox and Grid exercises from this week — every section below is
+          laid out with a different technique so the difference stays visible instead of theoretical.</p>
+      </div>
+      <aside class="hero__panel">
+        <div class="hero__stat">
+          <strong>2</strong>
+          <span>layout systems practiced</span>
+        </div>
+        <div class="hero__stat">
+          <strong>5</strong>
+          <span>breakpoints tested</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="layout" class="split">
+      <h2>Flexbox — equal-height row that reflows</h2>
+      <div class="split__row">
+        <article class="split__item">
+          <h3>Align</h3>
+          <p>Items share the row and stretch to match the tallest sibling, no fixed heights set anywhere.</p>
+        </article>
+        <article class="split__item">
+          <h3>Distribute</h3>
+          <p><code>justify-content: space-between</code> keeps the spacing even as the row grows or shrinks.</p>
+        </article>
+        <article class="split__item split__item--wide">
+          <h3>Grow</h3>
+          <p>This item carries <code>flex: 2</code>, so it claims double the space of its siblings when the row has room to give.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="grid" class="bento">
+      <h2>CSS Grid — named areas, not a uniform card wall</h2>
+      <div class="bento__grid">
+        <div class="bento__cell bento__cell--lead">
+          <h3>Lead tile</h3>
+          <p>Spans two rows using <code>grid-template-areas</code>, so the layout reads by importance rather than by insertion order.</p>
+        </div>
+        <div class="bento__cell">
+          <h3>Support</h3>
+          <p>A single-cell tile.</p>
+        </div>
+        <div class="bento__cell">
+          <h3>Support</h3>
+          <p>Same size, different content.</p>
+        </div>
+        <div class="bento__cell bento__cell--wide">
+          <h3>Wide tile</h3>
+          <p>Spans two columns to hold a longer note about the breakpoint behaviour below.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="chips" class="chips">
+      <h2>Flex-wrap — a row that breaks cleanly on small screens</h2>
+      <ul class="chips__list">
+        <li>Selectors</li>
+        <li>Box model</li>
+        <li>Positioning</li>
+        <li>Flexbox</li>
+        <li>Grid</li>
+        <li>Spacing scale</li>
+        <li>Media queries</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Resize the window past 640px to see the grid and flex rows change structure.</p>
+  </footer>
+
+</body>
+</html>

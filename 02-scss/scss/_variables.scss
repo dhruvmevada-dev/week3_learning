@@ -1,0 +1,27 @@
+// -----------------------------------------------
+// Design tokens shared across the whole stylesheet
+// -----------------------------------------------
+
+$color-bg:      #F3F5F1;
+$color-surface: #FFFFFF;
+$color-ink:     #20262B;
+$color-ink-soft:#5B6570;
+$color-accent:  #2F6F5E;
+$color-line:    #DBDED6;
+
+$font-head: "Space Grotesk", sans-serif;
+$font-body: "Inter", sans-serif;
+
+$space-1: 0.5rem;
+$space-2: 1rem;
+$space-3: 1.5rem;
+$space-4: 2.5rem;
+
+$radius: 10px;
+
+// Breakpoints, used by the respond() mixin in _mixins.scss
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+);

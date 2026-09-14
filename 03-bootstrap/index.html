@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bootstrap Practice — Sandbox</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+  /* Small overrides so the page doesn't read as raw default Bootstrap */
+  :root { --bs-primary: #2F6F5E; --bs-primary-rgb: 47, 111, 94; }
+  body { background: #F3F5F1; }
+  .navbar-brand { font-weight: 700; }
+  .btn-primary { background-color: #2F6F5E; border-color: #2F6F5E; }
+  .btn-primary:hover { background-color: #24564A; border-color: #24564A; }
+  .btn-outline-primary { color: #2F6F5E; border-color: #2F6F5E; }
+  .btn-outline-primary:hover { background-color: #2F6F5E; border-color: #2F6F5E; }
+  .card-title { font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <!-- Navbar component -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand" href="#">Practice Sandbox</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#grid">Grid</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#form">Form</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Grid system: container / row / col with breakpoint-aware columns -->
+  <section id="grid" class="container py-5">
+    <h2 class="mb-3">12-column grid, breakpoint-aware</h2>
+    <p class="text-muted mb-4">Each block below is full width on a phone, half width from <code>md</code> up, and a
+      third of the row from <code>lg</code> up — all from one set of column classes.</p>
+    <div class="row g-3 text-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-3 bg-white border rounded-3">col-12 col-md-6 col-lg-4</div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-3 bg-white border rounded-3">col-12 col-md-6 col-lg-4</div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="p-3 bg-white border rounded-3">col-12 col-md-6 col-lg-4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards + buttons + utility classes -->
+  <section id="cards" class="container pb-5">
+    <h2 class="mb-3">Cards and utility classes</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Utility spacing</h5>
+            <p class="card-text text-muted flex-grow-1">Built with <code>p-3</code>, <code>mb-3</code>, <code>d-flex</code> — no custom CSS on this card.</p>
+            <button class="btn btn-primary align-self-start">Primary action</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Outline variant</h5>
+            <p class="card-text text-muted flex-grow-1">Same card markup, a different button style to compare the two.</p>
+            <button class="btn btn-outline-primary align-self-start">Secondary action</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card h-100 shadow-sm bg-dark text-white">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Dark card</h5>
+            <p class="card-text flex-grow-1 opacity-75">Swapping <code>bg-dark text-white</code> restyles the whole card without new rules.</p>
+            <button class="btn btn-light align-self-start">Light button</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form components -->
+  <section id="form" class="container pb-5">
+    <h2 class="mb-3">Form components</h2>
+    <form class="row g-3 bg-white p-4 border rounded-3" onsubmit="return false;">
+      <div class="col-12 col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Jane Doe" />
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="jane@example.com" />
+      </div>
+      <div class="col-12">
+        <label for="topic" class="form-label">Topic</label>
+        <select class="form-select" id="topic">
+          <option selected>Layout question</option>
+          <option>Component question</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="updates" />
+          <label class="form-check-label" for="updates">Send me future session notes</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

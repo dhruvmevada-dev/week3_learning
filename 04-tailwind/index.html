@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tailwind Practice — Sandbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { accent: '#2F6F5E', warm: '#E2A33B', ink: '#20262B' },
+        fontFamily: {
+          head: ['"Space Grotesk"', 'sans-serif'],
+          body: ['"Inter"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+</head>
+<body class="bg-[#F3F5F1] text-ink font-body">
+
+  <!-- Utility-only navbar: no custom CSS anywhere on this page -->
+  <header class="flex items-center gap-6 px-8 py-4 bg-white border-b border-gray-200">
+    <div class="flex items-center gap-2 font-semibold">
+      <span class="flex items-center justify-center w-7 h-7 rounded-md bg-accent text-white font-head text-xs">SB</span>
+      Practice Sandbox
+    </div>
+    <nav class="ml-4 flex gap-6 text-sm text-gray-600">
+      <a href="#grid" class="hover:text-accent">Layout</a>
+      <a href="#cards" class="hover:text-accent">Cards</a>
+      <a href="#form" class="hover:text-accent">Form</a>
+    </nav>
+    <span class="ml-auto text-xs text-accent border border-accent rounded-full px-3 py-1">Tailwind demo</span>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-3xl px-8 pt-12 pb-8">
+    <h1 class="font-head text-3xl md:text-4xl font-bold leading-tight mb-3">
+      Styling built entirely from utility classes
+    </h1>
+    <p class="text-gray-600 max-w-prose">
+      Nothing on this page has a custom class name — every visual decision, from spacing to colour to
+      responsiveness, is a utility class read directly off the markup below.
+    </p>
+  </section>
+
+  <!-- Responsive utility grid -->
+  <section id="grid" class="px-8 pb-8">
+    <h2 class="font-head text-xl font-bold mb-3">Responsive grid</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white border border-gray-200 rounded-xl p-4 text-center text-sm text-gray-600">grid-cols-1</div>
+      <div class="bg-white border border-gray-200 rounded-xl p-4 text-center text-sm text-gray-600">sm:grid-cols-2</div>
+      <div class="bg-white border border-gray-200 rounded-xl p-4 text-center text-sm text-gray-600">lg:grid-cols-4</div>
+      <div class="bg-accent text-white rounded-xl p-4 text-center text-sm">accent tile</div>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section id="cards" class="px-8 pb-8">
+    <h2 class="font-head text-xl font-bold mb-3">Cards</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2">
+        <h3 class="font-head font-semibold">Hover state</h3>
+        <p class="text-sm text-gray-600 flex-1">Built with <code class="text-xs bg-gray-100 px-1 rounded">hover:</code> and <code class="text-xs bg-gray-100 px-1 rounded">transition</code> utilities.</p>
+        <button class="self-start px-4 py-2 rounded-lg border border-accent text-accent text-sm font-medium hover:bg-accent hover:text-white transition-colors">Outline</button>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2">
+        <h3 class="font-head font-semibold">Solid button</h3>
+        <p class="text-sm text-gray-600 flex-1">Same card shape, a filled call to action instead.</p>
+        <button class="self-start px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-[#24564A] transition-colors">Solid</button>
+      </div>
+      <div class="bg-ink text-white rounded-xl p-5 flex flex-col gap-2">
+        <h3 class="font-head font-semibold">Dark card</h3>
+        <p class="text-sm text-white/70 flex-1">A dark surface, reached by swapping two colour utilities.</p>
+        <button class="self-start px-4 py-2 rounded-lg bg-white text-ink text-sm font-medium">Light button</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="form" class="px-8 pb-12">
+    <h2 class="font-head text-xl font-bold mb-3">Form</h2>
+    <form class="bg-white border border-gray-200 rounded-xl p-6 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl" onsubmit="return false;">
+      <div class="flex flex-col gap-1">
+        <label for="tw-name" class="text-sm font-medium">Name</label>
+        <input id="tw-name" type="text" placeholder="Jane Doe"
+          class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label for="tw-email" class="text-sm font-medium">Email</label>
+        <input id="tw-email" type="email" placeholder="jane@example.com"
+          class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+      </div>
+      <div class="md:col-span-2 flex flex-col gap-1">
+        <label for="tw-note" class="text-sm font-medium">Note</label>
+        <textarea id="tw-note" rows="3" placeholder="Anything to flag?"
+          class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+      </div>
+      <div class="md:col-span-2">
+        <button type="submit" class="px-5 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-[#24564A] transition-colors">Submit</button>
+      </div>
+    </form>
+  </section>
+
+</body>
+</html>
