@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM Manipulation Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; }
+    #list { padding-left: 20px; }
+    .done { text-decoration: line-through; color: gray; }
+    button { margin-right: 8px; }
+  </style>
+</head>
+<body>
+  <h2>DOM Manipulation Demo (Simple To-Do List)</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter a task" />
+  <button id="addBtn">Add Task</button>
+
+  <ul id="list"></ul>
+
+  <p id="counter">Tasks: 0</p>
+
+  <script>
+    // Selecting elements from the DOM
+    const input = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const list = document.getElementById("list");
+    const counter = document.getElementById("counter");
+
+    let taskCount = 0;
+
+    function updateCounter() {
+      counter.textContent = `Tasks: ${taskCount}`;
+    }
+
+    function addTask() {
+      const text = input.value.trim();
+      if (text === "") return;
+
+      // Creating a new element dynamically
+      const li = document.createElement("li");
+      li.textContent = text;
+
+      // Toggle "done" style on click
+      li.addEventListener("click", () => {
+        li.classList.toggle("done");
+      });
+
+      // Remove button for each task
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "Remove";
+      removeBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // don't trigger the li's click too
+        list.removeChild(li);
+        taskCount--;
+        updateCounter();
+      });
+
+      li.appendChild(removeBtn);
+      list.appendChild(li); // Adding element to the DOM
+
+      taskCount++;
+      updateCounter();
+
+      input.value = "";
+      input.focus();
+    }
+
+    // Event listeners
+    addBtn.addEventListener("click", addTask);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") addTask();
+    });
+  </script>
+</body>
+</html>
